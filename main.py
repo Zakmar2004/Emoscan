@@ -11,8 +11,8 @@ model = torch.load(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'pre
 
 model.eval()
 
-load_dotenv(dotenv_path='token.env')
-token = os.getenv('token')
+load_dotenv()
+token = os.getenv('TOKEN')
 
 bot = Bot(token)
 dp = Dispatcher()
