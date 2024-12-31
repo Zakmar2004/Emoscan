@@ -1,14 +1,17 @@
 from aiogram import Bot, Dispatcher, F
 from aiogram.types import Message, ReplyKeyboardMarkup, KeyboardButton
 from aiogram.filters import Command
-import os
 import asyncio
-from config import token
 import torch
 from predict import predict_emotion
+from dotenv import load_dotenv
+import os
 
 model = torch.load('/Users/ull/PycharmProjects/Emoscan/pretrained_model/resnet50_FER2013+_full_model')
 model.eval()
+
+load_dotenv()
+token = os.getenv('token')
 
 bot = Bot(token)
 dp = Dispatcher()
