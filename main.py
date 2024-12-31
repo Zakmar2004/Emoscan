@@ -7,10 +7,11 @@ from predict import predict_emotion
 from dotenv import load_dotenv
 import os
 
-model = torch.load('/Users/ull/PycharmProjects/Emoscan/pretrained_model/resnet50_FER2013+_full_model')
+model = torch.load(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'pretrained_model/resnet50_FER2013+_full_model'))
+
 model.eval()
 
-load_dotenv()
+load_dotenv(dotenv_path='token.env')
 token = os.getenv('token')
 
 bot = Bot(token)
